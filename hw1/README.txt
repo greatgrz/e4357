@@ -1,4 +1,4 @@
-Total Hours Spent: 1.5/1.5
+Total Hours Spent: 2.0/1.5
 		   Actual/Expect
 
 Homework#1:
