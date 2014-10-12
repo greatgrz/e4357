@@ -1,0 +1,28 @@
+//Homework1 part2'
+
+//Author: Ruizhen Guo
+//Date: 2014/10/12
+
+
+1. 
+The device I found at home is a rounter manufactured by DLINK(DLINK DI-824VUP)
+which has an Samsung's S3C2510A 16/32-bit RISC micro-controller inside 
+
+2. open it 
+
+3. search for major components
+CPU: arm
+clock freq: 166MHz
+L1 data cache: 4KB
+L1 inst cache: 4KB
+memory: ROM/flash/on-chip SRAM
+RS232: does not have RS232 serial port, use USB interface instead 
+power 3.3V
+ground 0v 
+HUSB_DP/HUSB_DN/USB_DP/USB_DN
+
+DDR memory: no DDR, has a 2-bank SDRAM interface
+
+
+4. links to datasheet if found in the web
+http://www.datasheet.directory/samsung/S3C2510A01.pdf
