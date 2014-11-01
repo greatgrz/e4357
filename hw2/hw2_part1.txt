@@ -1,0 +1,43 @@
+1.How many text files and how many lines of text code in the exported offline code package?  
+For GCC : 
+53 .h file + 1 .cpp file and (5704+3990+12)=9706 lines of code
+
+For uVision:
+53 .h file + 1 .cpp file and (5704+3990+12)=9706 lines of code
+
+2.How many binary (library or object) files? 
+There are 6 binary files in each code package
+For GCC-arm_embedded, those files are all located under the ./HelloWorld/mbed/LPC1768/GCC_ARM directory
+4 objective files : cmsis_nvic.o core_cm3.o startup_LPC17xx.o system_LPC17xx.o
+2 library files : libcapi.a libmbed.a
+
+For uvision, those files are in the ./HelloWorld/mbed/LPC1768/ARM directory
+5 objective files : cmsis_nvic.o core_cm3.o startup_LPC17xx.o system_LPC17xx.o sys.o
+2 library files : capi.ar mbed.ar
+
+3.How many files are different between (a) and (b)? (Use linux commands: find, wc, diff) (10 points)
+Here are the outputs of linux 'diff' command:
+
+Only in ./HelloWorld_uvision_lpc1768/HelloWorld/mbed/LPC1768/ARM/: capi.ar
+Binary files ./HelloWorld_uvision_lpc1768/HelloWorld/mbed/LPC1768/ARM/cmsis_nvic.o and ./HelloWorld_gcc_arm_lpc1768/HelloWorld/mbed/LPC1768/GCC_ARM/cmsis_nvic.o differ
+Binary files ./HelloWorld_uvision_lpc1768/HelloWorld/mbed/LPC1768/ARM/core_cm3.o and ./HelloWorld_gcc_arm_lpc1768/HelloWorld/mbed/LPC1768/GCC_ARM/core_cm3.o differ
+Only in ./HelloWorld_gcc_arm_lpc1768/HelloWorld/mbed/LPC1768/GCC_ARM/: libcapi.a
+Only in ./HelloWorld_gcc_arm_lpc1768/HelloWorld/mbed/LPC1768/GCC_ARM/: libmbed.a
+Only in ./HelloWorld_gcc_arm_lpc1768/HelloWorld/mbed/LPC1768/GCC_ARM/: LPC1768.ld
+Only in ./HelloWorld_uvision_lpc1768/HelloWorld/mbed/LPC1768/ARM/: LPC1768.sct
+Only in ./HelloWorld_uvision_lpc1768/HelloWorld/mbed/LPC1768/ARM/: mbed.ar
+Binary files ./HelloWorld_uvision_lpc1768/HelloWorld/mbed/LPC1768/ARM/startup_LPC17xx.o and ./HelloWorld_gcc_arm_lpc1768/HelloWorld/mbed/LPC1768/GCC_ARM/startup_LPC17xx.o differ
+Only in ./HelloWorld_uvision_lpc1768/HelloWorld/mbed/LPC1768/ARM/: sys.o
+Binary files ./HelloWorld_uvision_lpc1768/HelloWorld/mbed/LPC1768/ARM/system_LPC17xx.o and ./HelloWorld_gcc_arm_lpc1768/HelloWorld/mbed/LPC1768/GCC_ARM/system_LPC17xx.o differ
+
+Only in ./HelloWorld_uvision_lpc1768/HelloWorld/: HelloWorld.uvopt
+Only in ./HelloWorld_uvision_lpc1768/HelloWorld/: HelloWorld.uvproj
+Only in ./HelloWorld_gcc_arm_lpc1768/HelloWorld/: Makefile
+
+4.What is the "Entry point address:" of your program?  (hint: using readelf)
+The start address of 'text' section is  0x8000
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 008000 004db4 00  AX  0   0  8
