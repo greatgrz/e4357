@@ -1,37 +1,18 @@
-#ifndef __CIRCULAR_BUFFER
-#define __CIRCULAR_BUFFER
 
-/* Implement a circularbuffer library with the following API interface */
+#include "mbed.h"
+#include "circular_buffer.h"
 
-/**< Circular Buffer Types */
-typedef unsigned char INT8U;
-typedef INT8U KeyType ;
-typedef struct {  
-    INT8U writePointer ; /**< write pointer */  
-    INT8U readPointer ;  /**< read pointer */  
-    INT8U size;         /**< size of circular buffer */
-    INT8U mask;         /**< bit Mask of circular buffer size*/   
-    KeyType keys[0];    /**< Element of ciruclar buffer */
-} CircularBuffer ; 
+
 
 inline int CircularBufferIsFull(CircularBuffer* que)
 {
-	if ((que->readPointer - que->writePointer) == 1) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
+	return (((que->writePointer + 1) & que->mask) == que->readPointer);
+
  }
  
 inline int CircularBufferIsEmpty(CircularBuffer* que)
 {
-	if (que->readPointer == que->writePointer) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
+	return (que->readPointer == que->writePointer) ;
  }
  
 inline int CircularBufferEnque(CircularBuffer* que, KeyType k)
@@ -43,7 +24,7 @@ inline int CircularBufferEnque(CircularBuffer* que, KeyType k)
 	else {
 		que->writePointer++ ;
 	}
-	retuen 1; 
+	return 1; 
  }
 
 inline int CircularBufferDeque(CircularBuffer* que, KeyType* pK)
@@ -55,21 +36,11 @@ inline int CircularBufferDeque(CircularBuffer* que, KeyType* pK)
 	else {
 		que->readPointer++ ;
 	}
-	retuen 1; 	
+	return 1; 	
  }
 
-inline int CircularBufferPrint(CircularBuffer* que)
-{ 
-	while(que->writePointer != que->readPointer) {
-		printf("data : %d\n", que->keys[readPointer]);
-		if (que->readPointer == que->mask) {
-			que->readPointer = 0 ;
-		}
-		else {
-			que->readPointer++ ;
-		}	
-	}
-	return 1; 
-}
 
-#endif
+
+//}
+
+//#endif
