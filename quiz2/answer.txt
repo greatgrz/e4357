@@ -1,1 +1,10 @@
 what will happen if do a search on Google 
+
+keyboard 
+keyboard function 
+browser 
+Google server 
+server will do parallel search 
+result returns to browser 
+the data wil go through serverl layers of ethernet protocol 
+back to be displayed on browser
